@@ -55,13 +55,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 twitterClient?.get("1.1/account/verify_credentials.json", parameters: nil, progress: nil,
                 success: { (task: URLSessionDataTask?, response: Any?) in
                     print("account: \(response)")
-                    let user = response as! NSDictionary
+                    let userDictionary = response as! NSDictionary
+                    
+                    let user = User(dictionary: userDictionary)
                     
                     print("user: \(user)")
-                    print("name: \(user["name"])")
-                    print("screenname: \(user["screen_name"])")
-                    print("profile url: \(user["profile_image_url_https"])")
-                    print("description: \(user["description"])")
+                    print("name: \(user.name)")
+                    print("screenname: \(user.screenname)")
+                    print("profile url: \(user.profileUrl)")
+                    print("description: \(user.tagline)")
                     
                 }, failure: { (task: URLSessionDataTask?, error: Error) in
                 
@@ -69,10 +71,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
                 twitterClient?.get("1.1/statuses/home_timeline.json", parameters: nil, progress: nil,
                 success: { (task: URLSessionDataTask?, response: Any?) in
-                    let tweets = response as! [NSDictionary]!
+//                    let tweets = response as! [NSDictionary]!
+                    let dictionaries = response as! [NSDictionary]
                     
-                    for tweet in tweets! {
-                        print("\(tweet["text"]!)")
+                    let tweets = Tweet.tweetsWithArray(dictionaries: dictionaries)
+                    
+                    for tweet in tweets {
+                        print("\(tweet.text!)")
                     }
                     
                 }, failure: { (task: URLSessionDataTask?, error: Error) in

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1D5C4CEB1E5A824300564C06 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C4CEA1E5A824300564C06 /* LoginViewController.swift */; };
+		1D5C4CF01E5AEBC500564C06 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C4CEF1E5AEBC500564C06 /* User.swift */; };
+		1D5C4CF21E5AEBD300564C06 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C4CF11E5AEBD300564C06 /* Tweet.swift */; };
 		1D892A511E5A7B5D0058625F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D892A501E5A7B5D0058625F /* AppDelegate.swift */; };
 		1D892A531E5A7B5D0058625F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D892A521E5A7B5D0058625F /* ViewController.swift */; };
 		1D892A561E5A7B5D0058625F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D892A541E5A7B5D0058625F /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 /* Begin PBXFileReference section */
 		025365184EE3AA7BA353AB0D /* Pods-MyTweets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTweets.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyTweets/Pods-MyTweets.release.xcconfig"; sourceTree = "<group>"; };
 		1D5C4CEA1E5A824300564C06 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1D5C4CEF1E5AEBC500564C06 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1D5C4CF11E5AEBD300564C06 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		1D892A4D1E5A7B5D0058625F /* MyTweets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTweets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D892A501E5A7B5D0058625F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D892A521E5A7B5D0058625F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +46,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D5C4CEC1E5AEB7B00564C06 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1D5C4CEF1E5AEBC500564C06 /* User.swift */,
+				1D5C4CF11E5AEBD300564C06 /* Tweet.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		1D5C4CED1E5AEB8500564C06 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1D892A521E5A7B5D0058625F /* ViewController.swift */,
+				1D5C4CEA1E5A824300564C06 /* LoginViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		1D5C4CEE1E5AEB9800564C06 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		1D892A441E5A7B5D0058625F = {
 			isa = PBXGroup;
 			children = (
@@ -63,13 +92,14 @@
 		1D892A4F1E5A7B5D0058625F /* MyTweets */ = {
 			isa = PBXGroup;
 			children = (
+				1D5C4CEE1E5AEB9800564C06 /* API */,
+				1D5C4CED1E5AEB8500564C06 /* View Controllers */,
+				1D5C4CEC1E5AEB7B00564C06 /* Models */,
 				1D892A501E5A7B5D0058625F /* AppDelegate.swift */,
-				1D892A521E5A7B5D0058625F /* ViewController.swift */,
 				1D892A541E5A7B5D0058625F /* Main.storyboard */,
 				1D892A571E5A7B5D0058625F /* Assets.xcassets */,
 				1D892A591E5A7B5D0058625F /* LaunchScreen.storyboard */,
 				1D892A5C1E5A7B5D0058625F /* Info.plist */,
-				1D5C4CEA1E5A824300564C06 /* LoginViewController.swift */,
 			);
 			path = MyTweets;
 			sourceTree = "<group>";
@@ -214,6 +244,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D5C4CF01E5AEBC500564C06 /* User.swift in Sources */,
+				1D5C4CF21E5AEBD300564C06 /* Tweet.swift in Sources */,
 				1D5C4CEB1E5A824300564C06 /* LoginViewController.swift in Sources */,
 				1D892A531E5A7B5D0058625F /* ViewController.swift in Sources */,
 				1D892A511E5A7B5D0058625F /* AppDelegate.swift in Sources */,
