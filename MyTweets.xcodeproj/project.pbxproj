@@ -3,18 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D5C4CEB1E5A824300564C06 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C4CEA1E5A824300564C06 /* LoginViewController.swift */; };
 		1D892A511E5A7B5D0058625F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D892A501E5A7B5D0058625F /* AppDelegate.swift */; };
 		1D892A531E5A7B5D0058625F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D892A521E5A7B5D0058625F /* ViewController.swift */; };
 		1D892A561E5A7B5D0058625F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D892A541E5A7B5D0058625F /* Main.storyboard */; };
 		1D892A581E5A7B5D0058625F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D892A571E5A7B5D0058625F /* Assets.xcassets */; };
 		1D892A5B1E5A7B5D0058625F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D892A591E5A7B5D0058625F /* LaunchScreen.storyboard */; };
+		8C012681E8D430D5223C7CDB /* Pods_MyTweets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84793916D794ECC3B9F44054 /* Pods_MyTweets.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		025365184EE3AA7BA353AB0D /* Pods-MyTweets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTweets.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyTweets/Pods-MyTweets.release.xcconfig"; sourceTree = "<group>"; };
+		1D5C4CEA1E5A824300564C06 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1D892A4D1E5A7B5D0058625F /* MyTweets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTweets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D892A501E5A7B5D0058625F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D892A521E5A7B5D0058625F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +26,8 @@
 		1D892A571E5A7B5D0058625F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D892A5A1E5A7B5D0058625F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D892A5C1E5A7B5D0058625F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84793916D794ECC3B9F44054 /* Pods_MyTweets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyTweets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFDEEFF965EB0A615441F1B0 /* Pods-MyTweets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTweets.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyTweets/Pods-MyTweets.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C012681E8D430D5223C7CDB /* Pods_MyTweets.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +47,8 @@
 			children = (
 				1D892A4F1E5A7B5D0058625F /* MyTweets */,
 				1D892A4E1E5A7B5D0058625F /* Products */,
+				289335412C23D9A9A5AC53C2 /* Pods */,
+				81FB0D4750EC8239CE4DAAB5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +69,26 @@
 				1D892A571E5A7B5D0058625F /* Assets.xcassets */,
 				1D892A591E5A7B5D0058625F /* LaunchScreen.storyboard */,
 				1D892A5C1E5A7B5D0058625F /* Info.plist */,
+				1D5C4CEA1E5A824300564C06 /* LoginViewController.swift */,
 			);
 			path = MyTweets;
+			sourceTree = "<group>";
+		};
+		289335412C23D9A9A5AC53C2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EFDEEFF965EB0A615441F1B0 /* Pods-MyTweets.debug.xcconfig */,
+				025365184EE3AA7BA353AB0D /* Pods-MyTweets.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		81FB0D4750EC8239CE4DAAB5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84793916D794ECC3B9F44054 /* Pods_MyTweets.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D892A5F1E5A7B5D0058625F /* Build configuration list for PBXNativeTarget "MyTweets" */;
 			buildPhases = (
+				B546B3553D830713ADFFCD59 /* [CP] Check Pods Manifest.lock */,
 				1D892A491E5A7B5D0058625F /* Sources */,
 				1D892A4A1E5A7B5D0058625F /* Frameworks */,
 				1D892A4B1E5A7B5D0058625F /* Resources */,
+				B602DB3808608B9BED104AED /* [CP] Embed Pods Frameworks */,
+				881CAE14538F410A6B30A992 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -101,7 +131,7 @@
 				};
 			};
 			buildConfigurationList = 1D892A481E5A7B5D0058625F /* Build configuration list for PBXProject "MyTweets" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -131,11 +161,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		881CAE14538F410A6B30A992 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyTweets/Pods-MyTweets-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B546B3553D830713ADFFCD59 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B602DB3808608B9BED104AED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyTweets/Pods-MyTweets-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1D892A491E5A7B5D0058625F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D5C4CEB1E5A824300564C06 /* LoginViewController.swift in Sources */,
 				1D892A531E5A7B5D0058625F /* ViewController.swift in Sources */,
 				1D892A511E5A7B5D0058625F /* AppDelegate.swift in Sources */,
 			);
@@ -256,6 +335,7 @@
 		};
 		1D892A601E5A7B5D0058625F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFDEEFF965EB0A615441F1B0 /* Pods-MyTweets.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MyTweets/Info.plist;
@@ -268,6 +348,7 @@
 		};
 		1D892A611E5A7B5D0058625F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 025365184EE3AA7BA353AB0D /* Pods-MyTweets.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MyTweets/Info.plist;
@@ -297,6 +378,7 @@
 				1D892A611E5A7B5D0058625F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
