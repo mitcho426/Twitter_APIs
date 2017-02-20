@@ -35,6 +35,7 @@ class LoginViewController: UIViewController {
             let authUrl = NSURL(string: "https://api.twitter.com/oauth/authorize?oauth_token=\(requestToken!.token!)")
             UIApplication.shared.open(authUrl as URL!)
             
+        //if failure, prints out error
         }, failure: { (error: Error?) in
             
             print("error: \(error?.localizedDescription)")
