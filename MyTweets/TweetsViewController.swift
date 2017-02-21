@@ -11,19 +11,18 @@ import UIKit
 class TweetsViewController: UIViewController {
     
     var tweets: [Tweet]?
-    
+    let client = TwitterClient.sharedInstance
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let client = TwitterClient.sharedInstance
         
-        client?.currentAccount()
+//        client?.currentAccount()
         
         client?.homeTimeLine(success: { (tweets: [Tweet]) in
             self.tweets = tweets
             
             for tweet in tweets {
-                print(tweet.text)
+                print(tweet.text!)
             }
         }, failure: { (error: Error) in
             print(error.localizedDescription)
@@ -33,6 +32,11 @@ class TweetsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func onLogoutButton(_ sender: Any) {
+        User.currentUser = nil
+        client?.logout()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

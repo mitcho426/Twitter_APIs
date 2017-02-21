@@ -61,16 +61,22 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tableView>
-                    <navigationItem key="navigationItem" id="iih-OB-bXu"/>
+                    <navigationItem key="navigationItem" id="iih-OB-bXu">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="L0e-ai-7Tu">
+                            <connections>
+                                <action selector="onLogoutButton:" destination="dY3-ve-yVU" id="PJP-Ws-Yqd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o7a-dO-ETg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1838" y="127"/>
+            <point key="canvasLocation" x="1796" y="128"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BsY-Qc-kHo">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fwz-Xt-UaJ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TweetsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Fwz-Xt-UaJ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xMf-Ha-9mc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
