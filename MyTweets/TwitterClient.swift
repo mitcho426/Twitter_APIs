@@ -59,9 +59,8 @@ class TwitterClient: BDBOAuth1SessionManager {
             success: { (task: URLSessionDataTask?, response: Any?) in
                 print("account: \(response)")
                 let userDictionary = response as! NSDictionary
-                
                 let user = User(dictionary: userDictionary)
-                
+
                 success(user)
 
 //                print("name: \(user.name)")
@@ -85,10 +84,9 @@ class TwitterClient: BDBOAuth1SessionManager {
                 let dictionaries = response as! [NSDictionary]
                 
                 let tweets = Tweet.tweetsWithArray(dictionaries: dictionaries)
-                
-//                for tweet in tweets {
-//                    print("\(tweet.text!)")
-//                }
+                for tweet in tweets {
+                    print("\(tweet.text!)")
+                }
             success(tweets)
         }, failure: { (task: URLSessionDataTask?, error: Error) in
             failure(error)
