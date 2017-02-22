@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFNetworking
 
 class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -21,8 +22,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         tableView.delegate = self
         tableView.dataSource = self
-//      tableView.estimatedRowHeight = 140
-//      tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
         
         self.loadData()
         // Do any additional setup after loading the view.
@@ -30,18 +31,12 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if self.tweets != nil {
-            return self.tweets.count
-        } else {
-            return 0
-        }
+        return tweets?.count ?? 0
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
-        
         cell.tweet = tweets[indexPath.row]
         
         return cell
@@ -63,13 +58,13 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             for tweet in tweets {
                 print(tweet.text!)
             }
+            self.tableView.reloadData()
             print("Tweet count: \(tweets.count)")
             
         }, failure: { (error: Error) in
             print("Failied to print")
             print(error.localizedDescription)
         })
-    self.tableView.reloadData()
     }
     
 

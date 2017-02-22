@@ -14,12 +14,14 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var tweetImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var screenameLabel: UILabel!
-    @IBOutlet weak var tweetLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
 
     var tweet : Tweet! {
         didSet {
-            nameLabel.text = "dadwa"
+            nameLabel.text = tweet.user?.name!
+            screenameLabel.text = "@\(tweet.user!.screenname!)"
+            tweetImage.setImageWith((tweet.user?.profileUrl)! as URL)
         }
     }
 
