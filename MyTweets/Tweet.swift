@@ -15,7 +15,11 @@ class Tweet: NSObject {
     var retweetCount: Int = 0
     var favoritesCount: Int = 0
     
+    var user: User?
+    
     init(dictionary: NSDictionary) {
+        user = User(dictionary: dictionary["user"] as! NSDictionary)
+        
         text = dictionary["text"] as? String
         
         //If int == nil, then int = 0
@@ -34,6 +38,7 @@ class Tweet: NSObject {
     
     //Class function is a function of this class
     //Class function that returns an array of class type Tweet
+    
     class func tweetsWithArray(dictionaries: [NSDictionary]) -> [Tweet] {
         
         //Create a empty array of type Tweet

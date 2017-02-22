@@ -15,10 +15,15 @@ class User: NSObject {
     var screenname: String?
     var profileUrl: URL?
     var tagline: String?
-    var followersCount: Int?
-    var followingCount: Int?
+//    var followersCount: Int?
+//    var followingCount: Int?
+//    var profileBannerUrl: URL?
+//    var location: String?
+//    var favoriteCount: Int?
+//    var tweetCount: Int?
     
     static let userDidLogoutNotification = "UserDidLogout"
+    
     var dictionary: NSDictionary?
     
     init(dictionary: NSDictionary) {
