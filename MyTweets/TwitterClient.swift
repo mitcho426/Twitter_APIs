@@ -93,6 +93,46 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
+    func retweetFunction(id: Int, success: @escaping ([Tweet])-> (), failure: @escaping (Error) -> ()) {
+        
+        post("1.1/statuses/retweet/\(id).json", parameters: nil, progress: nil, success: { (task: URLSessionDataTask!, response: Any?) -> Void in
+            print("success retweet")
+        }) { (task: URLSessionDataTask?, error: Error!) in
+            print(error.localizedDescription)
+            print("I failed retweeting")
+        }
+    }
+    
+    func unRetweetFunction(id: Int, success: @escaping ([Tweet])-> (), failure: @escaping (Error) -> ()) {
+        
+        post("1.1/statuses/unretweet/\(id).json", parameters: nil, progress: nil, success: { (task: URLSessionDataTask!, response: Any?) -> Void in
+            print("success unretweet")
+        }) { (task: URLSessionDataTask?, error: Error!) in
+            print(error.localizedDescription)
+            print("I failed unretweet")
+        }
+    }
+    
+    func favFuction(id: Int, success: @escaping ([Tweet])-> (), failure: @escaping (Error) -> ()) {
+        
+        post("1.1/favorites/create.json?id=\(id)", parameters: nil, progress: nil, success: { (task: URLSessionDataTask!, response: Any?) -> Void in
+            print("sucess favoriting")
+        }) { (task: URLSessionDataTask?, error: Error!) in
+            print(error.localizedDescription)
+            print("I failed favoriting")
+        }
+    }
+    
+    func deFavFuction(id: Int, success: @escaping ([Tweet])-> (), failure: @escaping (Error) -> ()) {
+        
+        post("/1.1/favorites/destroy.json?id=\(id)", parameters: nil, progress: nil, success: { (task: URLSessionDataTask!, response: Any?) -> Void in
+            print("success defavoriting")
+        }) { (task: URLSessionDataTask?, error: Error!) in
+            print(error.localizedDescription)
+            print("I failed defavoriting")
+        }
+    }
+    
     func logout() {
         User.currentUser = nil
         deauthorize()

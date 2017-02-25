@@ -12,6 +12,7 @@ class Tweet: NSObject {
 
     var text: String?
     var timeStamp: Date?
+    var timeStampString: String?
     var retweetCount: Int = 0
     var favoritesCount: Int = 0
     
@@ -31,9 +32,13 @@ class Tweet: NSObject {
         if let timestampString = timestampString {
             let formatter = DateFormatter()
             formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
-            
             timeStamp = formatter.date(from: timestampString)
+            formatter.dateStyle = .short
+            formatter.timeStyle = .short
+            self.timeStampString = formatter.string(from: timeStamp!)
         }
+        
+        
     }
     
     //Class function is a function of this class

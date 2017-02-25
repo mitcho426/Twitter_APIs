@@ -22,7 +22,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.estimatedRowHeight = 100
+        tableView.estimatedRowHeight = 160
         tableView.rowHeight = UITableViewAutomaticDimension
         
         self.loadData()
