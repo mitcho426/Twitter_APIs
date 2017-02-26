@@ -45,6 +45,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loginButtonLabel" destination="83v-Qy-Rcz" id="9cC-z2-rua"/>
                         <segue destination="Fwz-Xt-UaJ" kind="presentation" identifier="loginSegue" id="Ldg-f7-bzW"/>
                     </connections>
                 </viewController>

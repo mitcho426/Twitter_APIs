@@ -11,13 +11,17 @@ import BDBOAuth1Manager
 
 class LoginViewController: UIViewController {
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var loginButtonLabel: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "twiter-down.png")!)
-    
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "twitter-down.png")
+        self.view.insertSubview(backgroundImage, at: 0)
         
+        loginButtonLabel.layer.cornerRadius = 80.0
+    
         // Do any additional setup after loading the view.
     }
 

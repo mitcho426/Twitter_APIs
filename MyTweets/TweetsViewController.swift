@@ -8,6 +8,7 @@
 
 import UIKit
 import AFNetworking
+import MBProgressHUD
 
 class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -16,6 +17,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     var tweetId: Int = 0
     
     let client = TwitterClient.sharedInstance
+    
+    var refreshControl = UIRefreshControl()
     
     var isMoreDataLoading: Bool = false
     var loadingMoreView: InfiniteScrollActivityView?
@@ -39,6 +42,13 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.estimatedRowHeight = 160
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        
+        //let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+        // add refresh control to table view
+        tableView.insertSubview(refreshControl, at: 0)
         
         let frame = CGRect(x: 0, y: tableView.contentSize.height, width: tableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
         loadingMoreView = InfiniteScrollActivityView(frame: frame)
@@ -78,15 +88,19 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        self.loadData()
+    }
+    
     func loadData() {
         client?.homeTimeLine(success: { (tweets: [Tweet]) in
             self.tweets = tweets
             for tweet in tweets {
                 print(tweet.text!)
             }
-            
+            self.refreshControl.endRefreshing()
+            MBProgressHUD.hide(for: self.view, animated: true)
             self.tableView.reloadData()
-            print("Tweet count: \(tweets.count)")
             
         }, failure: { (error: Error) in
             print("Failied to print")
