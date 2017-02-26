@@ -10,7 +10,7 @@ import UIKit
 import AFNetworking
 
 class TweetCell: UITableViewCell {
-
+    
     @IBOutlet weak var tweetImage: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -25,8 +25,7 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var retweetCount: UILabel!
     @IBOutlet weak var favCount: UILabel!
     
-    var favFlag: Bool?
-    var retweetFlag: Bool?
+    let client = TwitterClient.sharedInstance
     
     var tweet : Tweet! {
         didSet {
@@ -34,38 +33,96 @@ class TweetCell: UITableViewCell {
             screenameLabel.text = "@\(tweet.user!.screenname!)"
             tweetImage.setImageWith((tweet.user?.profileUrl)! as URL)
             descriptionLabel.text = tweet.user?.tagline
-            timestampLabel.text = tweet.timeStampString!
+            timestampLabel.text = tweet.timeStamp!
             
             retweetCount.text = String(describing: tweet.retweetCount)
             favCount.text = String(describing: tweet.favoritesCount)
             
+            if tweet.favFlag == false {
+                favImageButton.setImage(UIImage(named: "favor-icon.png"), for: UIControlState.normal)
+            } else {
+                favImageButton.setImage(UIImage(named: "favor-icon-red.png"), for: UIControlState.normal)
+            }
+            
+            if tweet.retweetFlag == false {
+                retweetImageButton.setImage(UIImage(named: "retweet-icon.png"), for: UIControlState.normal)
+            } else {
+                retweetImageButton.setImage(UIImage(named: "retweet-icon-green.png"), for: UIControlState.normal)
+            }
+            
             replyImageButton.setImage(UIImage(named: "reply-icon.png"), for: UIControlState.normal)
-            retweetImageButton.setImage(UIImage(named: "retweet-icon.png"), for: UIControlState.normal)
-            favImageButton.setImage(UIImage(named: "favor-icon.png"), for: UIControlState.normal)
         }
     }
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
     }
-
+    
+    //Not yet implemented
     @IBAction func replyOnTap(_ sender: Any) {
         
     }
     
     @IBAction func favOnTap(_ sender: Any) {
-        //flag for pressed/not pressed
+        
+        if tweet.favFlag == false {
+            favImageButton.setImage(UIImage(named: "favor-icon-red.png"), for: UIControlState.normal)
+            
+            client?.favFuction(id: tweet.id!, success: { (tweets:[Tweet]) in
+                print("success")
+            }, failure: { (Error) in
+                print("failed")
+            })
+            
+            favCount.text = String(tweet.favoritesCount + 1)
+            tweet.favFlag = true
+        } else {
+            favImageButton.setImage(UIImage(named: "favor-icon.png"), for: UIControlState.normal)
+            
+            client?.deFavFuction(id: tweet.id!, success: { (tweets:[Tweet]) in
+                print("success")
+            }, failure: { (Error) in
+                print("failed")
+            })
+            
+            favCount.text = String(tweet.favoritesCount)
+            tweet.favFlag = false
+        }
         
     }
     
     @IBAction func retweetOnTap(_ sender: Any) {
-        //flag for pressed/not pressed
+        
+        if tweet.retweetFlag == false {
+            retweetImageButton.setImage(UIImage(named:"retweet-icon-green.png"), for: UIControlState.normal)
+            
+            client?.retweetFunction(id: tweet.id!, success: { (tweets:[Tweet]) in
+                print("success")
+            }, failure: { (error: Error) in
+                print("failed")
+            })
+            
+            retweetCount.text = String(tweet.retweetCount + 1)
+            tweet.retweetFlag = true
+            
+        } else {
+            retweetImageButton.setImage(UIImage(named:"retweet-icon.png"), for: UIControlState.normal)
+            
+            client?.unRetweetFunction(id: tweet.id!, success: { (tweets:[Tweet]) in
+                print("success")
+            }, failure: { (error: Error) in
+                print("failed")
+            })
+            
+            retweetCount.text = String(tweet.retweetCount)
+            tweet.retweetFlag = false
+        }
     }
 }

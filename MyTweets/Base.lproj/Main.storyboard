@@ -75,7 +75,7 @@
                                                 <constraint firstAttribute="width" constant="65" id="yr2-Lo-VMf"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tII-Vd-xru">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="755" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tII-Vd-xru">
                                             <rect key="frame" x="79" y="8" width="36" height="16"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                             <nil key="textColor"/>
@@ -168,7 +168,7 @@
                                         <constraint firstItem="N7p-QU-a05" firstAttribute="leading" secondItem="ypZ-FR-dyi" secondAttribute="trailing" constant="1" id="tVf-kV-7Bd"/>
                                         <constraint firstItem="dRg-um-8mV" firstAttribute="top" secondItem="tII-Vd-xru" secondAttribute="bottom" constant="2" id="tth-DX-ZtS"/>
                                         <constraint firstItem="tII-Vd-xru" firstAttribute="top" secondItem="0Cr-yO-861" secondAttribute="top" constant="8" id="udn-9G-55b"/>
-                                        <constraint firstAttribute="trailing" secondItem="g8k-C1-Mpd" secondAttribute="trailing" constant="133" id="uhP-Kv-a2T"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="g8k-C1-Mpd" secondAttribute="trailing" constant="4" id="uhP-Kv-a2T"/>
                                         <constraint firstItem="9Yh-un-kPo" firstAttribute="top" relation="greaterThanOrEqual" secondItem="dRg-um-8mV" secondAttribute="bottom" constant="4" id="uv2-AG-EBd"/>
                                         <constraint firstAttribute="bottom" secondItem="ypZ-FR-dyi" secondAttribute="bottom" constant="8" id="xjv-8x-Zga"/>
                                         <constraint firstItem="ypZ-FR-dyi" firstAttribute="leading" secondItem="9Yh-un-kPo" secondAttribute="trailing" constant="20" id="yPx-Xy-k2i"/>
