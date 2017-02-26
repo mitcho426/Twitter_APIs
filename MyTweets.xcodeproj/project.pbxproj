@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D3C59CC1E62978D00E1AE3E /* InfiniteScrollActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3C59CB1E62978D00E1AE3E /* InfiniteScrollActivityView.swift */; };
 		1D5C4CEB1E5A824300564C06 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C4CEA1E5A824300564C06 /* LoginViewController.swift */; };
 		1D5C4CF01E5AEBC500564C06 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C4CEF1E5AEBC500564C06 /* User.swift */; };
 		1D5C4CF21E5AEBD300564C06 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C4CF11E5AEBD300564C06 /* Tweet.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		025365184EE3AA7BA353AB0D /* Pods-MyTweets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTweets.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyTweets/Pods-MyTweets.release.xcconfig"; sourceTree = "<group>"; };
+		1D3C59CB1E62978D00E1AE3E /* InfiniteScrollActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollActivityView.swift; sourceTree = "<group>"; };
 		1D5C4CEA1E5A824300564C06 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1D5C4CEF1E5AEBC500564C06 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1D5C4CF11E5AEBD300564C06 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			children = (
 				1D5C4CEF1E5AEBC500564C06 /* User.swift */,
 				1D5C4CF11E5AEBD300564C06 /* Tweet.swift */,
+				1D3C59CB1E62978D00E1AE3E /* InfiniteScrollActivityView.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D3C59CC1E62978D00E1AE3E /* InfiniteScrollActivityView.swift in Sources */,
 				1D5C4CF01E5AEBC500564C06 /* User.swift in Sources */,
 				1D5C4CF21E5AEBD300564C06 /* Tweet.swift in Sources */,
 				1D5C4CEB1E5A824300564C06 /* LoginViewController.swift in Sources */,

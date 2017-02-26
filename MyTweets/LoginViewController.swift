@@ -10,10 +10,14 @@ import UIKit
 import BDBOAuth1Manager
 
 class LoginViewController: UIViewController {
-
+    
+    @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+//        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "twiter-down.png")!)
+    
+        
         // Do any additional setup after loading the view.
     }
 
