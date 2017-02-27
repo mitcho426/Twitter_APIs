@@ -55,8 +55,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         loadingMoreView!.isHidden = true
         tableView.addSubview(loadingMoreView!)
         
-        var insets = tableView.contentInset;
-        insets.bottom += InfiniteScrollActivityView.defaultHeight;
+        var insets = tableView.contentInset
+        insets.bottom += InfiniteScrollActivityView.defaultHeight
         tableView.contentInset = insets
         
         self.loadData()
@@ -71,11 +71,24 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
+        
+        //Create a tap gesture recognizer
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageDidTap(gesture:)))
+        //Add it to the image view
+        cell.tweetImage.addGestureRecognizer(tapGesture)
+        cell.tweetImage.isUserInteractionEnabled = true
+        
         cell.tweet = tweets[indexPath.row]
-        
         cell.selectionStyle = .none
-        
+
         return cell
+    }
+    
+    func imageDidTap(gesture: UIGestureRecognizer) {
+        //if the tapped view is a UIImageView then set it to the imageview
+        if (gesture.view as? UIImageView) != nil {
+            self.performSegue(withIdentifier: "ProfileViewController", sender: self)
+        }
     }
     
     @IBAction func onLogoutButton(_ sender: Any) {
@@ -144,6 +157,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             print(error)
         })
     }
+
 
 /*
  // MARK: - Navigation

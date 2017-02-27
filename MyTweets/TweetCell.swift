@@ -95,7 +95,6 @@ class TweetCell: UITableViewCell {
             favCount.text = String(tweet.favoritesCount)
             tweet.favFlag = false
         }
-        
     }
     
     @IBAction func retweetOnTap(_ sender: Any) {
