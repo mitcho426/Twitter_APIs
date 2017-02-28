@@ -28,6 +28,7 @@ class TweetCell: UITableViewCell {
     let client = TwitterClient.sharedInstance
     
     var tweet : Tweet! {
+        
         didSet {
             nameLabel.text = tweet.user?.name!
             screenameLabel.text = "@\(tweet.user!.screenname!)"
@@ -38,13 +39,13 @@ class TweetCell: UITableViewCell {
             retweetCount.text = String(describing: tweet.retweetCount)
             favCount.text = String(describing: tweet.favoritesCount)
             
-            if tweet.favFlag == false {
+            if !tweet.favFlag{
                 favImageButton.setImage(UIImage(named: "favor-icon.png"), for: UIControlState.normal)
             } else {
                 favImageButton.setImage(UIImage(named: "favor-icon-red.png"), for: UIControlState.normal)
             }
             
-            if tweet.retweetFlag == false {
+            if !tweet.retweetFlag {
                 retweetImageButton.setImage(UIImage(named: "retweet-icon.png"), for: UIControlState.normal)
             } else {
                 retweetImageButton.setImage(UIImage(named: "retweet-icon-green.png"), for: UIControlState.normal)
@@ -72,7 +73,7 @@ class TweetCell: UITableViewCell {
     
     @IBAction func favOnTap(_ sender: Any) {
         
-        if tweet.favFlag == false {
+        if !tweet.favFlag {
             favImageButton.setImage(UIImage(named: "favor-icon-red.png"), for: UIControlState.normal)
             
             client?.favFuction(id: tweet.id!, success: { (tweets:[Tweet]) in
@@ -99,7 +100,7 @@ class TweetCell: UITableViewCell {
     
     @IBAction func retweetOnTap(_ sender: Any) {
         
-        if tweet.retweetFlag == false {
+        if !tweet.retweetFlag {
             retweetImageButton.setImage(UIImage(named:"retweet-icon-green.png"), for: UIControlState.normal)
             
             client?.retweetFunction(id: tweet.id!, success: { (tweets:[Tweet]) in

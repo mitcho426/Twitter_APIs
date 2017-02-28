@@ -15,9 +15,9 @@ class User: NSObject {
     var screenname: String?
     var profileUrl: URL?
     var tagline: String?
-//    var followersCount: Int?
-//    var followingCount: Int?
-//    var profileBannerUrl: URL?
+    var followersCount: Int?
+    var followingCount: Int?
+    var profileBannerUrl: URL?
 //    var location: String?
 //    var favoriteCount: Int?
 //    var tweetCount: Int?

@@ -10,7 +10,7 @@ import UIKit
 import AFNetworking
 import MBProgressHUD
 
-class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
     
     var tweets: [Tweet]!
     var tweet: Tweet?
@@ -24,6 +24,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     var loadingMoreView: InfiniteScrollActivityView?
     
     let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+    var imageSelected: UIImageView?
 
     @IBOutlet var tableView: UITableView!
     
@@ -78,16 +79,22 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         cell.tweetImage.addGestureRecognizer(tapGesture)
         cell.tweetImage.isUserInteractionEnabled = true
         
+        //Created tag with indexpath.row
+        cell.tweetImage.tag = indexPath.row
+        
         cell.tweet = tweets[indexPath.row]
         cell.selectionStyle = .none
 
         return cell
     }
     
+    
     func imageDidTap(gesture: UIGestureRecognizer) {
         //if the tapped view is a UIImageView then set it to the imageview
         if (gesture.view as? UIImageView) != nil {
-            self.performSegue(withIdentifier: "ProfileViewController", sender: self)
+            imageSelected = gesture.view as? UIImageView
+            //Segue into ProfileViewController
+            self.performSegue(withIdentifier: "ProfileViewController", sender: nil)
         }
     }
     
@@ -145,7 +152,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     func loadMoreData () {
         
         client?.moreHomeTimeLine(id: tweetId, success: { (tweets: [Tweet]) in
-            
             for tweet in tweets {
                 self.tweets?.append(tweet)
             }
@@ -158,15 +164,40 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         })
     }
 
-
-/*
  // MARK: - Navigation
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    print("prepare for segue")
+    
+    if segue.identifier == "ProfileViewController" {
+        
+        //Grabs the image's indexPath.row on the tweetsTableView
+        let tweet = self.tweets[(imageSelected?.tag)!]
+        let profileViewController = segue.destination as! ProfileViewController
+        profileViewController.tweet = tweet
+        
+//        let tweetsVC = sender as! TweetsViewController
+//        let cell = tweetsVC.tableView as! UITableViewCell
+//        let indexPath = tableView.indexPath(for: cell)
+//        let tweetCell = tweets![indexPath!.row]
+//        let profileViewController = segue.destination as! ProfileViewController
+//        profileViewController.tweet = tweetCell
+
+//        let cell = sender as! UITableViewCell
+//        let indexPath = tableView.indexPath(for: cell)
+//        let movie = movies![indexPath!.row]
+//        
+//        let detailViewController = segue.destination as! DetailViewController
+//        
+//        detailViewController.movie = movie
+    }
+    
+    
+    
  // Get the new view controller using segue.destinationViewController.
  // Pass the selected object to the new view controller.
  }
- */
+ 
 
 }

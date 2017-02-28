@@ -69,7 +69,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="93"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3ky-dv-y3k">
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3ky-dv-y3k">
                                             <rect key="frame" x="8" y="8" width="65" height="65"/>
                                             <gestureRecognizers/>
                                             <constraints>
@@ -187,7 +187,6 @@
                                     <outlet property="screenameLabel" destination="CDg-qd-FuS" id="13i-7r-GVs"/>
                                     <outlet property="timestampLabel" destination="Uc8-O0-SyD" id="tBl-h1-Ey7"/>
                                     <outlet property="tweetImage" destination="3ky-dv-y3k" id="HB3-8j-1BP"/>
-                                    <segue destination="MX6-kf-B8B" kind="show" id="21P-Uw-Wpp"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -202,6 +201,7 @@
                     <connections>
                         <outlet property="tableView" destination="ouD-KR-Myb" id="6iP-Ph-4wp"/>
                         <segue destination="A3E-tV-j4S" kind="show" identifier="ProfileViewController" id="SAB-nw-CPe"/>
+                        <segue destination="MX6-kf-B8B" kind="show" identifier="TweetDetailViewController" id="qPv-YP-gBh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o7a-dO-ETg" userLabel="First Responder" sceneMemberID="firstResponder"/>
