@@ -10,8 +10,6 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    
-    
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var tweetNumber: UILabel!
     @IBOutlet weak var followingsNumber: UILabel!
@@ -21,6 +19,11 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        profileImageView.setImageWith((tweet.user?.profileUrl)! as URL)
+        tweetNumber.text = String(describing: tweet.user?.tweetCount)
+        followingsNumber.text = String(describing: tweet.user?.followingCount)
+        followersNumber.text = String(describing: tweet.user?.followersCount)
         
         // Do any additional setup after loading the view.
     }

@@ -23,7 +23,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     var isMoreDataLoading: Bool = false
     var loadingMoreView: InfiniteScrollActivityView?
     
-    let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
     var imageSelected: UIImageView?
 
     @IBOutlet var tableView: UITableView!
@@ -31,14 +30,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.barTintColor = UIColor.cyan
+        setupNavigationBarItems()
         
-        imageView.layer.cornerRadius = 75.0
-        imageView.clipsToBounds = true
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "TwitterLogo.png")
-        self.navigationItem.titleView = imageView
-
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 160
@@ -63,7 +56,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         self.loadData()
         // Do any additional setup after loading the view.
     }
-    
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tweets?.count ?? 0
@@ -172,25 +164,10 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     if segue.identifier == "ProfileViewController" {
         
-        //Grabs the image's indexPath.row on the tweetsTableView
         let tweet = self.tweets[(imageSelected?.tag)!]
         let profileViewController = segue.destination as! ProfileViewController
         profileViewController.tweet = tweet
-        
-//        let tweetsVC = sender as! TweetsViewController
-//        let cell = tweetsVC.tableView as! UITableViewCell
-//        let indexPath = tableView.indexPath(for: cell)
-//        let tweetCell = tweets![indexPath!.row]
-//        let profileViewController = segue.destination as! ProfileViewController
-//        profileViewController.tweet = tweetCell
 
-//        let cell = sender as! UITableViewCell
-//        let indexPath = tableView.indexPath(for: cell)
-//        let movie = movies![indexPath!.row]
-//        
-//        let detailViewController = segue.destination as! DetailViewController
-//        
-//        detailViewController.movie = movie
     }
     
     

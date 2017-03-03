@@ -15,12 +15,13 @@ class User: NSObject {
     var screenname: String?
     var profileUrl: URL?
     var tagline: String?
-    var followersCount: Int?
-    var followingCount: Int?
+    var followersCount: Int = 0
+    var followingCount: Int = 0
     var profileBannerUrl: URL?
+    var tweetCount: Int = 0
 //    var location: String?
 //    var favoriteCount: Int?
-//    var tweetCount: Int?
+
     
     static let userDidLogoutNotification = "UserDidLogout"
     
@@ -39,6 +40,9 @@ class User: NSObject {
         }
         
         tagline = dictionary["description"] as? String
+        followersCount = dictionary["followers_count"] as? Int ?? 0
+        followingCount = dictionary["friends_count"] as? Int ?? 0
+        tweetCount = dictionary["statuses_count"] as? Int ?? 0
     }
     
     //_ underscore hides class variable

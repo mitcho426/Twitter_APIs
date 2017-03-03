@@ -75,7 +75,7 @@ class TweetCell: UITableViewCell {
         
         if !tweet.favFlag {
             favImageButton.setImage(UIImage(named: "favor-icon-red.png"), for: UIControlState.normal)
-            
+            //Post fav
             client?.favFuction(id: tweet.id!, success: { (tweets:[Tweet]) in
                 print("success")
             }, failure: { (Error) in
@@ -86,7 +86,7 @@ class TweetCell: UITableViewCell {
             tweet.favFlag = true
         } else {
             favImageButton.setImage(UIImage(named: "favor-icon.png"), for: UIControlState.normal)
-            
+            //Withdraw fav
             client?.deFavFuction(id: tweet.id!, success: { (tweets:[Tweet]) in
                 print("success")
             }, failure: { (Error) in
