@@ -1,14 +1,14 @@
 //
-//  tweetViewController+navbar.swift
+//  ProfileViewController+navbar.swift
 //  MyTweets
 //
-//  Created by bwong on 3/2/17.
+//  Created by bwong on 3/3/17.
 //  Copyright © 2017 mwong. All rights reserved.
 //
 
 import UIKit
 
-extension TweetsViewController {
+extension ProfileViewController {
     
     func setupNavigationBarItems() {
         setupNavigationTitleView()

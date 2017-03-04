@@ -24,11 +24,20 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     var loadingMoreView: InfiniteScrollActivityView?
     
     var imageSelected: UIImageView?
-
+    
     @IBOutlet var tableView: UITableView!
+    
+    let errorMessageLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Apologies something went wrong. Please try again later..."
+        label.textAlignment = .center
+        return label
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addSubview(errorMessageLabel)
         
         setupNavigationBarItems()
         
@@ -37,21 +46,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.estimatedRowHeight = 160
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        MBProgressHUD.showAdded(to: self.view, animated: true)
-        
-        //let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
-        // add refresh control to table view
-        tableView.insertSubview(refreshControl, at: 0)
-        
-        let frame = CGRect(x: 0, y: tableView.contentSize.height, width: tableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
-        loadingMoreView = InfiniteScrollActivityView(frame: frame)
-        loadingMoreView!.isHidden = true
-        tableView.addSubview(loadingMoreView!)
-        
-        var insets = tableView.contentInset
-        insets.bottom += InfiniteScrollActivityView.defaultHeight
-        tableView.contentInset = insets
+        refreshSetup()
+        infiniteScrollingSetup()
         
         self.loadData()
         // Do any additional setup after loading the view.
@@ -76,7 +72,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         cell.tweet = tweets[indexPath.row]
         cell.selectionStyle = .none
-
+        
         return cell
     }
     
@@ -155,26 +151,53 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             print(error)
         })
     }
-
- // MARK: - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    print("prepare for segue")
     
-    if segue.identifier == "ProfileViewController" {
+    private func refreshSetup() {
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        //let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+        // add refresh control to table view
+        tableView.insertSubview(refreshControl, at: 0)
+    }
+    
+    private func infiniteScrollingSetup() {
+        let frame = CGRect(x: 0, y: tableView.contentSize.height, width: tableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
+        loadingMoreView = InfiniteScrollActivityView(frame: frame)
+        loadingMoreView!.isHidden = true
+        tableView.addSubview(loadingMoreView!)
         
-        let tweet = self.tweets[(imageSelected?.tag)!]
-        let profileViewController = segue.destination as! ProfileViewController
-        profileViewController.tweet = tweet
-
+        var insets = tableView.contentInset
+        insets.bottom += InfiniteScrollActivityView.defaultHeight
+        tableView.contentInset = insets
+    }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("prepare for segue")
+        
+        if segue.identifier == "ProfileViewController" {
+            
+            let tweet = self.tweets[(imageSelected?.tag)!]
+            let profileViewController = segue.destination as! ProfileViewController
+            profileViewController.tweet = tweet
+            
+        } else if segue.identifier == "TweetDetailViewController" {
+            
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPath(for: cell)
+            let tweet = tweets![indexPath!.row]
+            
+            let detailVC = segue.destination as! TweetDetailViewController
+            detailVC.tweet = tweet
+        }
+        
+        
+        
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
     
     
-    
- // Get the new view controller using segue.destinationViewController.
- // Pass the selected object to the new view controller.
- }
- 
-
 }

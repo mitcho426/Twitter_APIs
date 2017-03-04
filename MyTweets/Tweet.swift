@@ -45,8 +45,6 @@ class Tweet: NSObject {
         favFlag = dictionary["retweeted"] as! Bool
     }
     
-    //Ryan assisted func
-    //Converts seconds into a short string of time
     class func formatTweetTimeStamp(_ tweetTimeStamp: TimeInterval) -> String{
         var time = Int(tweetTimeStamp)
         var timeSinceTweet: Int = 0
@@ -73,9 +71,6 @@ class Tweet: NSObject {
         
         return("\(timeSinceTweet)\(timeLabelCharacter)")
     }
-    
-    //Class function is a function of this class
-    //Class function that returns an array of class type Tweet
     
     class func tweetsWithArray(dictionaries: [NSDictionary]) -> [Tweet] {
         

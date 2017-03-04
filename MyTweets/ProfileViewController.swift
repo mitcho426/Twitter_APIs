@@ -14,16 +14,20 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var tweetNumber: UILabel!
     @IBOutlet weak var followingsNumber: UILabel!
     @IBOutlet weak var followersNumber: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var screenNameLabel: UILabel!
     
     var tweet: Tweet!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupNavigationBarItems()
+        
         profileImageView.setImageWith((tweet.user?.profileUrl)! as URL)
-        tweetNumber.text = String(describing: tweet.user?.tweetCount)
-        followingsNumber.text = String(describing: tweet.user?.followingCount)
-        followersNumber.text = String(describing: tweet.user?.followersCount)
+        tweetNumber.text = String(describing: tweet.user!.tweetCount)
+        followingsNumber.text = String(describing: tweet.user!.followingCount)
+        followersNumber.text = String(describing: tweet.user!.followersCount)
         
         // Do any additional setup after loading the view.
     }

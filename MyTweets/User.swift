@@ -15,10 +15,12 @@ class User: NSObject {
     var screenname: String?
     var profileUrl: URL?
     var tagline: String?
+    
     var followersCount: Int = 0
     var followingCount: Int = 0
-    var profileBannerUrl: URL?
     var tweetCount: Int = 0
+    
+    var profileBannerUrl: URL?
 //    var location: String?
 //    var favoriteCount: Int?
 
@@ -35,14 +37,21 @@ class User: NSObject {
         screenname = dictionary["screen_name"] as? String
         
         let profileUrlString = dictionary["profile_image_url_https"] as? String
+        
         if let profileUrlString = profileUrlString {
             profileUrl = NSURL(string: profileUrlString) as? URL
         }
         
         tagline = dictionary["description"] as? String
-        followersCount = dictionary["followers_count"] as? Int ?? 0
-        followingCount = dictionary["friends_count"] as? Int ?? 0
-        tweetCount = dictionary["statuses_count"] as? Int ?? 0
+        
+        
+        followersCount = (dictionary["followers_count"] as? Int) ?? 0
+        followingCount = (dictionary["friends_count"] as? Int) ?? 0
+        tweetCount = (dictionary["statuses_count"] as? Int) ?? 0
+        
+        print("Followers Count: \(followersCount)")
+        print("Following Count: \(followingCount)")
+        print("Tweets Count: \(tweetCount)")
     }
     
     //_ underscore hides class variable
