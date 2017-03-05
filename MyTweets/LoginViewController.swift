@@ -20,20 +20,14 @@ class LoginViewController: UIViewController {
         backgroundImage.image = UIImage(named: "twitter-down.png")
         self.view.insertSubview(backgroundImage, at: 0)
         
-        loginButtonLabel.layer.cornerRadius = 80.0
-    
-        // Do any additional setup after loading the view.
+        loginButtonLabel.layer.cornerRadius = 4.0
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func onLoginButton(_ sender: Any) {
-        
-        //Twitter API for Auth
-//        let twitterClient = BDBOAuth1SessionManager(baseURL: NSURL(string: "https://api.twitter.com") as URL!, consumerKey: "3jYpSbAPC1rFUudQxwSj7WY9L", consumerSecret: "2Ku8z2WeGL1cM6NXrUevvBWeCJfTJzCwwAgSEzlcU6L6kGSZLW")
 
         let client = TwitterClient.sharedInstance
         

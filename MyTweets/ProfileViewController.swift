@@ -33,6 +33,10 @@ class ProfileViewController: UIViewController {
         followingsNumber.text = String(describing: tweet.user!.followingCount)
         followersNumber.text = String(describing: tweet.user!.followersCount)        
         // Do any additional setup after loading the view.
+        
+        profileImageView.clipsToBounds = true
+        profileImageView.contentMode = .scaleAspectFit
+        profileImageView.layer.cornerRadius = 25.0
     }
     
     override func didReceiveMemoryWarning() {

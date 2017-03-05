@@ -12,6 +12,8 @@ class Tweet: NSObject {
 
     var text: String?
     var timeStamp: String?
+    var detailstimeStamp: Date?
+    var detailsTimeStampString: String?
     var retweetCount: Int = 0
     var favoritesCount: Int = 0
     var id: Int?
@@ -40,6 +42,15 @@ class Tweet: NSObject {
             let timeStampInSeconds = formatter.date(from: timestampString)!
             timeStamp = Tweet.formatTweetTimeStamp(timeStampInSeconds.timeIntervalSinceNow)
         }
+        
+        detailsTimeStampString = dictionary["created_at"] as? String
+        let detailFormatter = DateFormatter()
+        detailFormatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
+        detailstimeStamp = detailFormatter.date(from: detailsTimeStampString!)
+        detailFormatter.dateStyle = .short
+        detailFormatter.timeStyle = .short
+        detailsTimeStampString = detailFormatter.string(from: detailstimeStamp!)
+        
         
         retweetFlag = dictionary["favorited"] as! Bool
         favFlag = dictionary["retweeted"] as! Bool

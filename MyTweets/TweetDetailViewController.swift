@@ -36,9 +36,7 @@ class TweetDetailViewController: UIViewController {
         nameLabel.text = tweet.user?.name!
         screenNameLabel.text = "@\(tweet.user!.screenname!)"
         descriptionLabel.text = tweet.user?.tagline
-        timestampLabel.text = "\(tweet.timeStamp!) ago"
-        
-        replyButton.isHighlighted = false
+        timestampLabel.text = "\(tweet.detailstimeStamp!)"
         
         //Using one label to render data for retweet and favourites
 
@@ -57,6 +55,11 @@ class TweetDetailViewController: UIViewController {
         }
         
         replyButton.setImage(UIImage(named: "reply-icon.png"), for: UIControlState.normal)
+        
+        
+        replyButton.showsTouchWhenHighlighted = true
+        retweetButton.showsTouchWhenHighlighted = true
+        favButton.showsTouchWhenHighlighted = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,6 +70,7 @@ class TweetDetailViewController: UIViewController {
     @IBAction func replyOnTap(_ sender: Any) {
         
     }
+    
     @IBAction func retweetOnTap(_ sender: Any) {
         if !tweet.retweetFlag {
             retweetButton.setImage(UIImage(named:"retweet-icon-green.png"), for: UIControlState.normal)
