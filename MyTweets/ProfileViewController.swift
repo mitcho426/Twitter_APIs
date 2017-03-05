@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var followersNumber: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var screenNameLabel: UILabel!
+    @IBOutlet weak var headerName: UILabel!
     
     var tweet: Tweet!
     
@@ -24,11 +25,13 @@ class ProfileViewController: UIViewController {
         
         setupNavigationBarItems()
         
+        nameLabel.text = tweet.user?.name!
+        screenNameLabel.text = "@\(tweet.user!.screenname!)"
+        headerName.text = tweet.user?.name!
         profileImageView.setImageWith((tweet.user?.profileUrl)! as URL)
         tweetNumber.text = String(describing: tweet.user!.tweetCount)
         followingsNumber.text = String(describing: tweet.user!.followingCount)
-        followersNumber.text = String(describing: tweet.user!.followersCount)
-        
+        followersNumber.text = String(describing: tweet.user!.followersCount)        
         // Do any additional setup after loading the view.
     }
     
