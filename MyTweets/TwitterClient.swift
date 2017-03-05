@@ -60,11 +60,6 @@ class TwitterClient: BDBOAuth1SessionManager {
                 let user = User(dictionary: userDictionary)
 
                 success(user)
-
-//                print("name: \(user.name)")
-//                print("screenname: \(user.screenname)")
-//                print("profile url: \(user.profileUrl)")
-//                print("description: \(user.tagline)")
                 
         }, failure: { (task: URLSessionDataTask?, error: Error) in
             failure(error)
@@ -142,6 +137,45 @@ class TwitterClient: BDBOAuth1SessionManager {
             print("I failed defavoriting")
         }
     }
+    
+    func composeTweet(tweetToPost: String) {
+        post("1.1/statuses/update.json?status=\(tweetToPost)", parameters: nil, progress: nil, success: { (task: URLSessionDataTask!, response: Any?) -> Void in
+            print("success post")
+        }) { (task: URLSessionDataTask?, error: Error!) in
+            print(error.localizedDescription)
+            print("I failed posting")
+        }
+    }
+    
+//    func compose(escapedTweet: String, params: NSDictionary?, completion: @escaping (_ error: Error?) -> () ){
+//        post("1.1/statuses/update.json?status=\(escapedTweet)", parameters: params, success: { (operation: URLSessionDataTask!, response: Any?) -> Void in
+//            print("Tweeted: \(escapedTweet)")
+//            completion(nil)
+//        }, failure: { (operation: URLSessionDataTask?, error: Error?) -> Void in
+//            print("Couldn't compose: \(error?.localizedDescription)")
+//            completion(error as Error?)
+//        })
+//    }
+//    
+//    func postTweetFunction(statusText: String) {
+        
+//        post("1.1/statuses/update.json?status=\(statusText)", parameters: nil, progress: nil, success: { (task: URLSessionDataTask!, response: Any?) -> Void in
+//            print("success post")
+//        }) { (task: URLSessionDataTask?, error: Error!) in
+//            print(error.localizedDescription)
+//            print("fail post")
+//        }
+//}
+//
+//    func reply(escapedTweet: String, id: Int, params: NSDictionary?, completion: @escaping (_ error: NSError?) -> () ){
+//        post("1.1/statuses/update.json?in_reply_to_status_id=\(statusID)&status=\(escapedTweet)", parameters: params, success: { (operation: URLSessionDataTask!, response: Any?) -> Void in
+//            print("Replied: \(escapedTweet)")
+//            completion(nil)
+//        }, failure: { (operation: URLSessionDataTask?, error: Error?) -> Void in
+//            print("Couldn't reply")
+//            completion(error as Error?)
+//        })
+//    }
     
     func logout() {
         User.currentUser = nil

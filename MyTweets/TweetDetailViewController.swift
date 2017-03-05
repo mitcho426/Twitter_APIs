@@ -32,11 +32,25 @@ class TweetDetailViewController: UIViewController {
         nameLabel.text = tweet.user?.name!
         screenNameLabel.text = "@\(tweet.user!.screenname!)"
         descriptionLabel.text = tweet.user?.tagline
-        timestampLabel.text = tweet.timeStamp!
+        timestampLabel.text = "\(tweet.timeStamp!) ago"
         
         //Using one label to render data for retweet and favourites
-        
+
         numOfRetweetAndFAV.text = "\(tweet.retweetCount) RETWEET \(tweet.favoritesCount) FAVOURITES"
+        
+        if !tweet.favFlag{
+            favButton.setImage(UIImage(named: "favor-icon.png"), for: UIControlState.normal)
+        } else {
+            favButton.setImage(UIImage(named: "favor-icon-red.png"), for: UIControlState.normal)
+        }
+        
+        if !tweet.retweetFlag {
+            retweetButton.setImage(UIImage(named: "retweet-icon.png"), for: UIControlState.normal)
+        } else {
+            retweetButton.setImage(UIImage(named: "retweet-icon-green.png"), for: UIControlState.normal)
+        }
+        
+        replyButton.setImage(UIImage(named: "reply-icon.png"), for: UIControlState.normal)
     }
 
     override func didReceiveMemoryWarning() {

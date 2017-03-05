@@ -192,11 +192,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             let detailVC = segue.destination as! TweetDetailViewController
             detailVC.tweet = tweet
         }
-        
-        
-        
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
     
     

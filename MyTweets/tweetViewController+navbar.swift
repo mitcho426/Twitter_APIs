@@ -31,5 +31,19 @@ extension TweetsViewController {
         composeButton.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: composeButton)
+        
+        composeButton.addTarget(self, action: #selector(composeTapped(gesture:)), for: .touchUpInside)
     }
+    
+    @objc private func composeTapped(gesture: UIButton) {
+//        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        
+//        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Compose") as! ComposeViewController
+//        
+//        self.present(nextViewController, animated: true, completion: nil)
+        
+        self.performSegue(withIdentifier: "ComposeTweetViewController", sender: nil)
+    }
+    
+    
 }
