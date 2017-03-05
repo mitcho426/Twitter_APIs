@@ -14,15 +14,12 @@ class ComposeTweetViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var tweetTextView: UITextView!
     
     var tweetMsg: String?
-    let client = TwitterClient.sharedInstance
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tweetTextView.delegate = self
-//        let startPosition: UITextPosition = tweetTextView.beginningOfDocument
-//        let endPosition: UITextPosition = tweetTextView.endOfDocument
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,8 +31,8 @@ class ComposeTweetViewController: UIViewController, UITextViewDelegate {
         
         tweetMsg = tweetTextView.text
         
-        client?.composeTweet(tweetToPost: tweetMsg!)
-        dismiss(animated: true, completion: nil)
+        TwitterClient.sharedInstance?.composeTweet(tweetToPost: tweetMsg!)
+        self.navigationController?.popViewController(animated: true)
     }
     
     /*

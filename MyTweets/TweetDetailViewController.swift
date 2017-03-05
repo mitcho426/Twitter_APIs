@@ -12,6 +12,8 @@ class TweetDetailViewController: UIViewController {
     
     var tweet: Tweet!
     
+    let client = TwitterClient.sharedInstance
+    
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var screenNameLabel: UILabel!
@@ -58,7 +60,53 @@ class TweetDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func replyOnTap(_ sender: Any) {
+        
+    }
+    @IBAction func retweetOnTap(_ sender: Any) {
+        if !tweet.retweetFlag {
+            retweetButton.setImage(UIImage(named:"retweet-icon-green.png"), for: UIControlState.normal)
+            
+            client?.retweetFunction(id: tweet.id!, success: { (tweets:[Tweet]) in
+                print("success")
+            }, failure: { (error: Error) in
+                print("failed")
+            })
+            tweet.retweetFlag = true
+            
+        } else {
+            retweetButton.setImage(UIImage(named:"retweet-icon.png"), for: UIControlState.normal)
+            
+            client?.unRetweetFunction(id: tweet.id!, success: { (tweets:[Tweet]) in
+                print("success")
+            }, failure: { (error: Error) in
+                print("failed")
+            })
+            tweet.retweetFlag = false
+        }
+    }
+    
+    @IBAction func favOnTap(_ sender: Any) {
+        if !tweet.favFlag {
+            favButton.setImage(UIImage(named: "favor-icon-red.png"), for: UIControlState.normal)
+            //Post fav
+            client?.favFuction(id: tweet.id!, success: { (tweets:[Tweet]) in
+                print("success")
+            }, failure: { (Error) in
+                print("failed")
+            })
+            tweet.favFlag = true
+        } else {
+            favButton.setImage(UIImage(named: "favor-icon.png"), for: UIControlState.normal)
+            //Withdraw fav
+            client?.deFavFuction(id: tweet.id!, success: { (tweets:[Tweet]) in
+                print("success")
+            }, failure: { (Error) in
+                print("failed")
+            })
+            tweet.favFlag = false
+        }
+    }
     /*
     // MARK: - Navigation
 
