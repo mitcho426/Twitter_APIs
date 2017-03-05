@@ -375,12 +375,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KNU-rr-NiI">
-                                <rect key="frame" x="26" y="113" width="268" height="361"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Cj-zs-F5c">
                                 <rect key="frame" x="253" y="509" width="37" height="30"/>
                                 <constraints>
@@ -392,20 +386,26 @@
                                     <action selector="doneButtonOnTap:" destination="kol-7O-Wkt" eventType="touchUpInside" id="vqX-eA-Kvm"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KeP-NW-nwA">
+                                <rect key="frame" x="42" y="103" width="236" height="311"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="KNU-rr-NiI" secondAttribute="trailing" constant="26" id="3RY-Re-kQj"/>
-                            <constraint firstItem="KNU-rr-NiI" firstAttribute="leading" secondItem="MRt-Mt-zW9" secondAttribute="leading" constant="26" id="91m-SY-2Tt"/>
+                            <constraint firstAttribute="trailing" secondItem="KeP-NW-nwA" secondAttribute="trailing" constant="42" id="0WN-AD-5m2"/>
                             <constraint firstItem="1Cj-zs-F5c" firstAttribute="leading" secondItem="MRt-Mt-zW9" secondAttribute="leading" constant="253" id="CEH-FN-W5h"/>
                             <constraint firstItem="KuI-Ny-Kgn" firstAttribute="top" secondItem="1Cj-zs-F5c" secondAttribute="bottom" constant="29" id="Cvg-vx-Xap"/>
                             <constraint firstAttribute="trailing" secondItem="1Cj-zs-F5c" secondAttribute="trailing" constant="30" id="MoD-QX-vnv"/>
-                            <constraint firstItem="1Cj-zs-F5c" firstAttribute="top" secondItem="KNU-rr-NiI" secondAttribute="bottom" constant="35" id="XTE-ZA-7VA"/>
-                            <constraint firstItem="KNU-rr-NiI" firstAttribute="top" secondItem="7Jq-cW-Oec" secondAttribute="bottom" constant="49" id="pwc-ur-nPy"/>
+                            <constraint firstItem="1Cj-zs-F5c" firstAttribute="top" secondItem="KeP-NW-nwA" secondAttribute="bottom" constant="95" id="bfD-sM-3Yh"/>
+                            <constraint firstItem="KeP-NW-nwA" firstAttribute="top" secondItem="7Jq-cW-Oec" secondAttribute="bottom" constant="39" id="eOq-Kz-k5U"/>
+                            <constraint firstItem="KeP-NW-nwA" firstAttribute="leading" secondItem="MRt-Mt-zW9" secondAttribute="leading" constant="42" id="hla-la-BfS"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tweetTextField" destination="KNU-rr-NiI" id="r6I-YR-rfm"/>
+                        <outlet property="tweetTextView" destination="KeP-NW-nwA" id="BpC-qJ-zo8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kg3-bl-Mn1" userLabel="First Responder" sceneMemberID="firstResponder"/>

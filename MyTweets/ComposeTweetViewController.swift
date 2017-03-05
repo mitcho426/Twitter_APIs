@@ -8,12 +8,20 @@
 
 import UIKit
 
-class ComposeTweetViewController: UIViewController {
+class ComposeTweetViewController: UIViewController, UITextViewDelegate {
 
-    @IBOutlet weak var tweetTextField: UITextField!
+    
+    @IBOutlet weak var tweetTextView: UITextView!
+    
+    var tweetMsg: String?
+    let client = TwitterClient.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tweetTextView.delegate = self
+//        let startPosition: UITextPosition = tweetTextView.beginningOfDocument
+//        let endPosition: UITextPosition = tweetTextView.endOfDocument
         // Do any additional setup after loading the view.
     }
 
@@ -24,7 +32,12 @@ class ComposeTweetViewController: UIViewController {
     
     @IBAction func doneButtonOnTap(_ sender: Any) {
         
+        tweetMsg = tweetTextView.text
+        
+        client?.composeTweet(tweetToPost: tweetMsg!)
+        dismiss(animated: true, completion: nil)
     }
+    
     /*
     // MARK: - Navigation
 
