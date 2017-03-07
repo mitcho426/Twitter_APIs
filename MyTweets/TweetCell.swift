@@ -33,7 +33,7 @@ class TweetCell: UITableViewCell {
             nameLabel.text = tweet.user?.name!
             screenameLabel.text = "@\(tweet.user!.screenname!)"
             tweetImage.setImageWith((tweet.user?.profileUrl)! as URL)
-            descriptionLabel.text = tweet.user?.tagline
+            descriptionLabel.text = tweet.text
             timestampLabel.text = tweet.timeStamp!
             
             retweetCount.text = String(describing: tweet.retweetCount)

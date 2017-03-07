@@ -35,7 +35,7 @@ class TweetDetailViewController: UIViewController {
         profileImageView.setImageWith((tweet.user?.profileUrl)! as URL)
         nameLabel.text = tweet.user?.name!
         screenNameLabel.text = "@\(tweet.user!.screenname!)"
-        descriptionLabel.text = tweet.user?.tagline
+        descriptionLabel.text = tweet.text
         timestampLabel.text = "\(tweet.detailstimeStamp!)"
         
         //Using one label to render data for retweet and favourites

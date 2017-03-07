@@ -323,7 +323,7 @@
                             <constraint firstItem="mCM-IO-CPc" firstAttribute="top" secondItem="73m-1Q-abU" secondAttribute="bottom" constant="11" id="Ox4-XL-aYv"/>
                             <constraint firstItem="mCM-IO-CPc" firstAttribute="leading" secondItem="arR-VI-y5o" secondAttribute="leading" constant="139" id="QSh-gI-Cym"/>
                             <constraint firstItem="73m-1Q-abU" firstAttribute="top" secondItem="arR-VI-y5o" secondAttribute="top" constant="137" id="Rj8-UN-BCm"/>
-                            <constraint firstAttribute="trailing" secondItem="mCM-IO-CPc" secondAttribute="trailing" constant="138.5" id="WsJ-Ph-yMR"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mCM-IO-CPc" secondAttribute="trailing" constant="138.5" id="WsJ-Ph-yMR"/>
                             <constraint firstAttribute="trailing" secondItem="73m-1Q-abU" secondAttribute="trailing" constant="127" id="dsa-L9-z0t"/>
                             <constraint firstItem="zdo-qM-GRg" firstAttribute="top" secondItem="YY5-Uc-Lrm" secondAttribute="bottom" constant="34" id="fql-PP-VSI"/>
                             <constraint firstAttribute="trailing" secondItem="YY5-Uc-Lrm" secondAttribute="trailing" constant="120" id="gDO-4U-96l"/>
