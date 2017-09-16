@@ -1,5 +1,13 @@
 # Project 5 - *MyTweets*
 
+## Video Walkthrough 
+
+Here's a walkthrough of implemented user stories:
+
+<img src='http://imgur.com/XydUPqj.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
 Time spent: **5** hours spent in total
 
 ## User Stories
@@ -35,16 +43,6 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 1. 
 2. 
-
-## Video Walkthrough 
-
-Here's a walkthrough of implemented user stories:
-
-<img src='http://imgur.com/XydUPqj.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
-
-## Notes
 
 Describe any challenges encountered while building the app.
 
